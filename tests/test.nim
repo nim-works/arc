@@ -8,6 +8,8 @@ proc main =
 
     block:
       ## we can read the rc of a ref
+      when not (defined(gcArc) or defined(gcOrc)):
+        skip "supported only on arc|orc"
       var r: ref string
       new r
       r[] = "goats"
