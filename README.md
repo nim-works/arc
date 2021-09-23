@@ -9,6 +9,8 @@
 This module provides a few simple functions to read/write the reference counter
 of a Nim reference using atomics.
 
+Only `gc:arc` and `gc:orc` are supported.
+
 ## Documentation
 See [the documentation for the arc module](https://disruptek.github.io/arc/arc.html) as generated directly from the source.
 
