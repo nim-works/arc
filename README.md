@@ -2,7 +2,7 @@
 
 [![Test Matrix](https://github.com/nim-works/arc/workflows/CI/badge.svg)](https://github.com/nim-works/arc/actions?query=workflow%3ACI)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/nim-works/arc?style=flat)](https://github.com/nim-works/arc/releases/latest)
-![Minimum supported Nim version](https://img.shields.io/badge/nim-1.5.1%2B-informational?style=flat&logo=nim)
+![Minimum supported Nim version](https://img.shields.io/badge/nim-1.2.13%2B-informational?style=flat&logo=nim)
 [![License](https://img.shields.io/github/license/nim-works/arc?style=flat)](#license)
 
 This module provides a few simple functions to read/write the reference counter
