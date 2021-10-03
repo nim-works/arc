@@ -1,0 +1,5 @@
+atomicRC	arc.html#atomicRC,ref,AtomMemModel	arc: atomicRC(p: ref; order: AtomMemModel = ATOMIC_SEQ_CST): int	
+atomicRC	arc.html#atomicRC,ref,int,AtomMemModel	arc: atomicRC(p: ref; n: int; order: AtomMemModel = ATOMIC_SEQ_CST)	
+atomicIncRef	arc.html#atomicIncRef,ref,AtomMemModel	arc: atomicIncRef(p: ref; order: AtomMemModel = ATOMIC_SEQ_CST): int	
+atomicDecRef	arc.html#atomicDecRef,ref,AtomMemModel	arc: atomicDecRef(p: ref; order: AtomMemModel = ATOMIC_SEQ_CST): int	
+isIsolated	arc.html#isIsolated.t,ref,AtomMemModel	arc: isIsolated(p: ref; order: AtomMemModel = ATOMIC_SEQ_CST): bool	
