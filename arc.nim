@@ -34,25 +34,25 @@ template head(p: ref): Cell =
 
 template rcPtr(p: ref): ptr int = addr head(p)[].rc
 
-proc atomicRC*(p: ref): int =
+proc atomicRC*(p: ref, order: AtomMemModel = ATOMIC_SEQ_CST): int =
   ## returns the current rc
-  atomicLoad(rcPtr(p), addr result, ATOMIC_SEQ_CST)
+  atomicLoad(rcPtr(p), addr result, order)
   result = unshit result
 
-proc atomicRC*(p: ref; n: int) =
+proc atomicRC*(p: ref; n: int, order: AtomMemModel = ATOMIC_SEQ_CST) =
   ## sets the rc to the provided value
-  let old = atomicFetchAnd(rcPtr(p), rcMask, ATOMIC_SEQ_CST)
+  let old = atomicFetchAnd(rcPtr(p), rcMask, order)
   let n = (shit n) and old
-  atomicStore(rcPtr(p), unsafeAddr n, ATOMIC_SEQ_CST)
+  atomicStore(rcPtr(p), unsafeAddr n, order)
 
-proc atomicIncRef*(p: ref): int =
+proc atomicIncRef*(p: ref, order: AtomMemModel = ATOMIC_SEQ_CST): int =
   ## returns the old value
-  unshit atomicFetchAdd(rcPtr(p), rcIncrement, ATOMIC_SEQ_CST)
+  unshit atomicFetchAdd(rcPtr(p), rcIncrement, order)
 
-proc atomicDecRef*(p: ref): int =
+proc atomicDecRef*(p: ref, order: AtomMemModel = ATOMIC_SEQ_CST): int =
   ## returns the old value
-  unshit atomicFetchSub(rcPtr(p), rcIncrement, ATOMIC_SEQ_CST)
+  unshit atomicFetchSub(rcPtr(p), rcIncrement, order)
 
-template isIsolated*(p: ref): bool =
+template isIsolated*(p: ref, order: AtomMemModel = ATOMIC_SEQ_CST): bool =
   ## true if the ref is the sole owner
   atomicRC(p) == 0
