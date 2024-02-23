@@ -123,7 +123,7 @@ jobs:
                 --define:debug --define:release --define:danger
 
       - name: Build docs
-        if: ${{ matrix.docs }} == 'true'
+        if: github.event_name == 'push' && matrix.compiler.name == 'nim'
         shell: bash
         run: |
           cd project
