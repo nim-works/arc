@@ -1,0 +1,7 @@
+nimTitle	arc	arc.html	module arc		0
+nim	atomicRC	arc.html#atomicRC,ref,AtomMemModel	proc atomicRC(p: ref; order: AtomMemModel = ATOMIC_SEQ_CST): int		37
+nim	atomicRC	arc.html#atomicRC,ref,int,AtomMemModel	proc atomicRC(p: ref; n: int; order: AtomMemModel = ATOMIC_SEQ_CST)		42
+nim	atomicIncRef	arc.html#atomicIncRef,ref,AtomMemModel	proc atomicIncRef(p: ref; order: AtomMemModel = ATOMIC_SEQ_CST): int		48
+nim	atomicDecRef	arc.html#atomicDecRef,ref,AtomMemModel	proc atomicDecRef(p: ref; order: AtomMemModel = ATOMIC_SEQ_CST): int		52
+nim	isIsolated	arc.html#isIsolated.t,ref,AtomMemModel	template isIsolated(p: ref; order: AtomMemModel = ATOMIC_SEQ_CST): bool		56
+nimgrp	atomicrc	arc.html#atomicRC-procs-all	proc		37
